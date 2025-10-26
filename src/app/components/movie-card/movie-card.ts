@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-card',
@@ -8,4 +9,15 @@ import { Component } from '@angular/core';
 })
 export class MovieCard {
 
+  @Input() movie: any;
+
+  constructor(private router: Router) {}
+
+  getPosterUrl(path: string): string {
+    return path ? `https://image.tmdb.org/t/p/w500${path}` : 'assets/no-poster.png';
+  }
+
+  goToDetails(id: number) {
+    this.router.navigate(['/details', id]);
+  }
 }

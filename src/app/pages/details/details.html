@@ -1,1 +1,9 @@
-<p>details works!</p>
+<div *ngIf="movie" class="details-container">
+  <img [src]="getPosterUrl(movie.poster_path)" alt="{{ movie.title }}" />
+  <div class="info">
+    <h1>{{ movie.title }}</h1>
+    <p>{{ movie.overview }}</p>
+    <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
+    <p><strong>Rating:</strong> ⭐ {{ movie.vote_average }}</p>
+  </div>
+</div>
